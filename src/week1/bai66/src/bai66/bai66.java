@@ -36,6 +36,7 @@ public class bai66
             }
             System.out.println();
         }
+        sc.close();
     }
 
 }
