@@ -1,0 +1,9 @@
+Section 9: Tất cả các thuộc tính trong bài này title,category,directory,length,cost đều có getter và setter
+Section 10: không được do cả 2 ptkt đều có 1 tham số và cả đuề cùng kiểu String
+Section 14.1: cách truyền số lượng tham số tùy ý
+Section 15: 
+	* hàm swap là truyền vào bản copy của o1 và o2 nên quá trình swap trong hàm chỉ là hoán đổi 2 bản copy
+        * hàm changeTitle có thể thay đổi vì dvd bên trong method là bản copy của địa chỉ — nhưng địa chỉ đó vẫn trỏ đến cùng object với jungleDVD.
+	  Khi gọi dvd.setTitle("Cinderella") là đang thay đổi trực tiếp nội dung object thông qua địa chỉ đó — nên jungleDVD bên ngoài thấy được sự thay đổi.
+	
+	    			 
