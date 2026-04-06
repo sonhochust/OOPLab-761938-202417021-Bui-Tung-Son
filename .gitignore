@@ -1,0 +1,10 @@
+# Ignore file .class
+*.class
+
+# Ignore folder bin
+bin/
+
+# Ignore các file Eclipse
+.classpath
+.project
+.settings/
