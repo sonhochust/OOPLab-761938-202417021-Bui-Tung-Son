@@ -1,0 +1,61 @@
+SECTION 1.3 
+1. So sanh top-level container cua Swing va AWT:
+- AWT: top-level container la Frame. Lop ung dung ke thua truc tiep tu Frame,
+  cac component duoc add truc tiep len doi tuong Frame.
+- Swing: top-level container la JFrame. Cac JComponent khong the add truc tiep
+  len JFrame vi chung la lightweight component. Thay vao do phai add len
+  content pane lay qua getContentPane().
+
+2. So sanh ten cac class component trong AWT va Swing:
+- AWT khong co tien to "J":
+    Frame, Panel, Label, TextField, TextArea, Button, ...
+- Swing co tien to "J":
+    JFrame, JPanel, JLabel, JTextField, JTextArea, JButton, ...
+- Component cua Swing ke thua JComponent, con AWT ke thua Component truc tiep.
+
+3. So sanh xu ly su kien (event-handling) cua Swing va AWT:
+- Co che xu ly su kien cua ca hai deu giong nhau, dung Delegation Event Model:
+    + Component nguon ban ra su kien (ActionEvent, MouseEvent, ...).
+    + Doi tuong listener dang ky vao nguon qua addActionListener().
+    + Khi su kien xay ra, phuong thuc callback (actionPerformed()) duoc goi tu dong.
+- Ca hai deu dung cac interface listener trong goi java.awt.event.
+- Code xu ly su kien trong AWTAccumulator va SwingAccumulator hoan toan giong nhau.
+
+4. So sanh giao dien hien thi:
+- AWT dung native look-and-feel cua he dieu hanh, nen giao dien khac nhau tren
+  Windows, macOS, Linux.
+- Swing tu ve bang Java nen giao dien nhat quan tren moi nen tang. Swing con
+  ho tro pluggable look-and-feel (Metal, Nimbus, ...).
+- Swing trong dep va dong deu hon, AWT trong giong widget cua OS.
+
+SECTION 2 - Layout Managers
+
+5. GridLayout(2, 2) lam gi?
+- Tao luoi 2 hang 2 cot. Component duoc them vao theo thu tu trai sang phai,
+  tren xuong duoi. Moi o co kich thuoc bang nhau.
+
+6. BorderLayout lam gi?
+- Chia container thanh 5 vung: NORTH, SOUTH, EAST, WEST, CENTER.
+  Moi vung chi chua 1 component. Vung CENTER chiem phan khong gian con lai.
+
+7. BoxLayout lam gi?
+- Sap xep component theo 1 hang ngang (X_AXIS) hoac 1 cot doc (Y_AXIS).
+  Component giu nguyen kich thuoc uu tien cua minh, khong bi gian ra.
+
+SECTION 3 - AIMS GUI
+
+8. Tai sao MediaStore extends JPanel thay vi JFrame?
+- MediaStore la mot o trong luoi hien thi store, khong phai cua so doc lap.
+  JPanel la container thu cap co the nhung vao container khac (GridLayout).
+  JFrame la cua so top-level, khong the nhung vao container khac.
+
+9. Tai sao can kiem tra instanceof Playable trong MediaStore?
+- Khong phai tat ca Media deu phat duoc. Book khong implement Playable,
+  con DigitalVideoDisc va CompactDisc thi co. Kiem tra instanceof dam bao
+  nut "Play" chi hien voi media co the phat, tranh loi ClassCastException.
+
+10. Tai sao AddItemToStoreScreen dung abstract class (ke thua)?
+- Ba lop AddBookToStoreScreen, AddCompactDiscToStoreScreen,
+  AddDigitalVideoDiscToStoreScreen deu dung chung menu bar, form layout,
+  nut "Add to Store". Dung lop cha abstract giup tranh lap code (DRY),
+  chi can subclass va implement onSubmit() khi them loai media moi.
