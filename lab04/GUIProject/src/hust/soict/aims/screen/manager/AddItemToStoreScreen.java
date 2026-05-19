@@ -7,10 +7,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Parent class for all "Add Item" screens.
- * Provides the shared menu bar and a common form layout.
- */
 public abstract class AddItemToStoreScreen extends JFrame {
     protected Store store;
     protected JPanel formPanel;
@@ -72,7 +68,6 @@ public abstract class AddItemToStoreScreen extends JFrame {
         return menuBar;
     }
 
-    /** Helper to add a label+field row to the form */
     protected JTextField addFormRow(String labelText, int row) {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(8, 5, 8, 5);
@@ -107,7 +102,5 @@ public abstract class AddItemToStoreScreen extends JFrame {
         return panel;
     }
 
-    /** Subclasses implement this to validate inputs and add the media to the store.
-     *  Return true on success, false on validation error (show own error dialog). */
     protected abstract boolean onSubmit();
 }
