@@ -27,7 +27,6 @@ public class TestViewStoreScreen extends Application {
                 new ViewStoreController(store, cart);
         fxmlLoader.setController(viewStoreController);
         Parent root = fxmlLoader.load();
-        // initialize() được JavaFX tự gọi bên trong fxmlLoader.load() — không cần gọi lại
 
         primaryStage.setTitle("Store");
         primaryStage.setScene(new Scene(root));

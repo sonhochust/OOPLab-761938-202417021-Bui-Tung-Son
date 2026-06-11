@@ -35,7 +35,6 @@ public class CartController {
     private Store store;
     private Cart cart;
 
-    // FilteredList bọc ObservableList để hỗ trợ search
     private FilteredList<Media> filteredList;
 
     public CartController(Store store, Cart cart) {
