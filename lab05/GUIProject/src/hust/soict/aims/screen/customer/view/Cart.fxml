@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+    <!-- TOP -->
+    <top>
+        <HBox alignment="CENTER" prefHeight="100.0">
+            <HBox.margin>
+                <Insets left="20" right="20" />
+            </HBox.margin>
+            <Label style="-fx-font-size: 50px; -fx-text-fill: #004cff;" text="Cart">
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
+            <padding>
+               <Insets left="10.0" />
+            </padding></Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button onAction="#btnViewStorePressed" prefHeight="50.0" prefWidth="100.0" text="View Store">
+            <HBox.margin>
+               <Insets right="20.0" />
+            </HBox.margin></Button>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </BorderPane.margin>
+        </HBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <VBox.margin>
+                <Insets left="20" right="20" />
+            </VBox.margin>
+
+            <!-- Filter bar -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <padding>
+                    <Insets bottom="10" top="10" />
+                </padding>
+                <Label text="Filter" />
+                <TextField fx:id="tfFilter" />
+                <RadioButton fx:id="radioBtnFilterId" selected="true" text="By ID">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="filterCategory" />
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="radioBtnFilterTitle" text="By Title" toggleGroup="$filterCategory" />
+            </HBox>
+
+            <!-- TableView -->
+            <TableView fx:id="tblMedia">
+                <columns>
+                    <TableColumn fx:id="colMediaId" text="ID" />
+                    <TableColumn fx:id="colMediaTitle" text="Title" />
+                    <TableColumn fx:id="colMediaCategory" text="Category" />
+                    <TableColumn fx:id="colMediaCost" text="Cost" />
+                </columns>
+            </TableView>
+
+            <!-- Play + Remove buttons -->
+            <HBox alignment="TOP_RIGHT" spacing="20.0">
+                <padding>
+                    <Insets top="10" />
+                </padding>
+                <Button fx:id="btnPlay" onAction="#btnPlayPressed" prefWidth="60.0" text="Play" />
+                <Button fx:id="btnRemove" onAction="#btnRemovePressed" prefWidth="60.0" text="Remove" />
+            </HBox>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </BorderPane.margin>
+        </VBox>
+    </center>
+
+    <!-- BOTTOM -->
+    <bottom>
+        <VBox alignment="TOP_CENTER" prefHeight="200.0" spacing="30.0">
+            <HBox alignment="CENTER">
+                <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Total: " />
+                <Label fx:id="costLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="0 $" />
+            </HBox>
+            <Button onAction="#btnPlaceOrderPressed" style="-fx-font-size: 24px; -fx-font-weight: bold;                            -fx-text-fill: white; -fx-background-color: #004cff;" text="Place Order" />
+        </VBox>
+    </bottom>
+
+</BorderPane>

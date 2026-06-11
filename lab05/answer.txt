@@ -1,0 +1,26 @@
+Cau 1: Cấu trúc cơ bản của một ứng dụng JavaFX là gì?
+ Mot ung dung JavaFX su dung mo hinh san khau (theater metaphor) de mo ta giao dien do hoa. Bao gom:
+- Stage: La container cap cao nhat, tuong ung voi cua so ung dung.
+- Scene: Chua cac control va thanh phan giao dien. Mot Stage tai mot thoidiem chi hien thi mot Scene.
+- Scene Graph: La mot cau truc cay phan cap cua cac Node (nut) nam trong Scene, bao gom root node, branch nodes va leaf nodes.
+
+Cau 2: Neu nguoi dung chi nhan chuot (mouse down) ma khong keo (mouse drag) trong ung dung Painter, lam sao de dau cham van hien thi?
+ Can cau hinh them su kien 'On Mouse Pressed' trong Scene Builder cho Pane drawingArea, va gan chung phuong thuc xu ly 'drawingAreaMouseDragged' giong nhu su kien 'On Mouse Dragged'. Khi do ca hai hanh dong nhan chuot va keo chuot deu kich hoat cung mot logic ve dau cham.
+
+Cau 3: De TableView trong JavaFX tu dong cap nhat giao dien khi du lieu danh sach thay doi, ta can dung loai danh sach nao?
+ Ta can su dung ObservableList (vi du: ObservableList<Media>) thay vi dung List thong thuong. ObservableList cho phep TableView lang nghe va tu dong cap nhat giao dien moi khi co su thay doi ve phan tu (them, xoa, sua).
+
+Cau 4: Mechanism nao giup lien ket cac cot cua TableView voi cac thuoc tinh cua doi tuong model?
+ Su dung PropertyValueFactory. Lop nay se nhan vao ten thuoc tinh duoi dang chuoi (String) va tu dong tim phuong thuc getter tuong ung (get<thuoc_tinh>()) trong lop model de lay du lieu hien thi len o cua cot.
+
+Cau 5: Lam sao de thay doi trang thai cac nut (nhu Play, Remove) dua tren dong duoc chon trong TableView?
+ Thong qua viec them mot ChangeListener vao thuoc tinh selectedItem cua TableView (tblMedia.getSelectionModel().selectedItemProperty().addListener(...)). Moi khi dong chon thay doi, phuong thuc changed() duoc goi, tu do ta kiem tra gia tri moi va cap nhat an/hien hoan toan tu dong thong qua mot ham nhu updateButtonBar().
+
+Cau 6: Lam sao de chuyen doi giua cac man hinh (nhu Store Screen va Cart Screen) trong JavaFX?
+ Ta tai file FXML cua man hinh moi bang FXMLLoader, sau do lay cua so hien tai (Stage) thong qua su kien (event.getSource().getScene().getWindow()) va thiet lap mot Scene moi cho Stage do bang cach su dung stage.setScene(new Scene(rootNode)).
+
+Cau 7: Tai sao co che uy quyen ngoai le (exception delegation - throws) lai dac biet huu ich cho cac ham khoi tao (constructors)?
+ Co che nay giup ngan chan viec tao ra mot doi tuong loi hoac khong hop le neu co vi phat ve rang buoc du lieu hoac dieu kien logic. Khi constructor nem ra ngoai le, qua trinh khoi tao doi tuong se bi huy, dam bao tinh toan ven cua du lieu he thong.
+
+Cau 8: Dieu gi xay ra khi ban khong cap nhat khoi try-catch de bat cac ngoai le duoc tao ra tu ham play()?
+ Trinh bien dich Java se bao loi (Compile-time error) doi voi cac checked exception nhu PlayerException, khong cho phep chuong trinh bien dich thanh cong cho den khi ngoai le do duoc bat bang try-catch hoac tiep tuc duoc khai bao uy quyen bang tu khoa throws o chu ky phuong thuc.
